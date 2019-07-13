@@ -6,16 +6,16 @@
 import java.util.Scanner;
 
 /**
- * Nhập vào dãy số gồm n số tự nhiên Tìm vị trí phần tử lẻ đầu tiên
- * Không dùng break
+ * Nhập vào dãy gồm n số tự nhiên, liệt kê tần suất xuất hiện của mỗi phần tử
+ *
  * @author leodo0208
  */
-public class Btvn1e {
+public class OnTap6 {
 
     public static void main(String[] args) {
-        boolean check = true;
+        int count = 0;
         Scanner in = new Scanner(System.in);
-        System.out.print("Nhap vao so n: ");
+        System.out.print("n = ");
         int n = in.nextInt();
 
         int[] numbers = new int[n];
@@ -23,20 +23,18 @@ public class Btvn1e {
             System.out.print("Nhap so thu " + i + ": ");
             numbers[i] = in.nextInt();
         }
-        System.out.print("Day so da nhap la: ");
+        System.out.print("Day so vua nhap la: ");
         for (int i : numbers) {
             System.out.print(i + " ");
         }
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 != 0 && check) {
-                System.out.print("\nSo le dau tien cua mang la: " + numbers[i]);
-                check = false;
+        System.out.print("\nNhap vao mot so nguyen bat ki: ");
+        int m = in.nextInt();
+        //Dem so lan xuat hien cua so nguyen do trong day so tren
+        for (int i = 0; i < n; i++) {
+            if (numbers[i] == m) {
+                count++;
             }
-
         }
-        if (check) {
-            System.out.print("\nKhong co so le ");
-        }
-
+        System.out.println("So phan tu " + m + " co trong mang la: " + count);
     }
 }

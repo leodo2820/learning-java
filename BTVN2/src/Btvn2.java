@@ -6,14 +6,14 @@
 import java.util.Scanner;
 
 /**
- * Nhập vào dãy số gồm n số tự nhiên Tìm vị trí phần tử lẻ đầu tiên
- * Không dùng break
+ * Nhập vào một mảng phần tử độ dài n bất kỳ, đảo ngược mảng vừa nhập vào
+ *
  * @author leodo0208
  */
-public class Btvn1e {
+public class Btvn2 {
 
     public static void main(String[] args) {
-        boolean check = true;
+        int temp;
         Scanner in = new Scanner(System.in);
         System.out.print("Nhap vao so n: ");
         int n = in.nextInt();
@@ -23,20 +23,21 @@ public class Btvn1e {
             System.out.print("Nhap so thu " + i + ": ");
             numbers[i] = in.nextInt();
         }
-        System.out.print("Day so da nhap la: ");
+        System.out.print("Day so vua nhap la: ");
         for (int i : numbers) {
             System.out.print(i + " ");
         }
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 != 0 && check) {
-                System.out.print("\nSo le dau tien cua mang la: " + numbers[i]);
-                check = false;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j <= n - 1; j++) {
+                temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
             }
-
         }
-        if (check) {
-            System.out.print("\nKhong co so le ");
+        System.out.print("\nDay so sau khi bi doi cho la: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(numbers[i] + " ");
         }
-
     }
+
 }

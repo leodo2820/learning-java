@@ -6,14 +6,15 @@
 import java.util.Scanner;
 
 /**
- * Nhập vào dãy số gồm n số tự nhiên Tìm vị trí phần tử lẻ đầu tiên
- * Không dùng break
+ * Nhập vào dãy số gồm n số tự nhiên. Tìm vị trí phần tử lớn nhất đầu tiên có
+ * trong mảng
+ *
  * @author leodo0208
  */
-public class Btvn1e {
+public class Btvn1g {
 
     public static void main(String[] args) {
-        boolean check = true;
+
         Scanner in = new Scanner(System.in);
         System.out.print("Nhap vao so n: ");
         int n = in.nextInt();
@@ -23,20 +24,20 @@ public class Btvn1e {
             System.out.print("Nhap so thu " + i + ": ");
             numbers[i] = in.nextInt();
         }
-        System.out.print("Day so da nhap la: ");
+        System.out.print("Day so vua nhap la: ");
         for (int i : numbers) {
             System.out.print(i + " ");
         }
+        int max = numbers[0];
+        int index = 0;
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 != 0 && check) {
-                System.out.print("\nSo le dau tien cua mang la: " + numbers[i]);
-                check = false;
+            if (numbers[i] > max) {
+                max = numbers[i];
+                index = i;
             }
 
         }
-        if (check) {
-            System.out.print("\nKhong co so le ");
-        }
-
+        System.out.println("\nPhan tu lon nhat co gia tri la: " + max);
+        System.out.println("Vi tri cua phan tu lon nhat dau tien la: " + index);
     }
 }

@@ -6,6 +6,7 @@
 package btvn;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  *
@@ -14,17 +15,35 @@ import java.util.Scanner;
 public class Btvn5 {
 
     public static void main(String[] args) {
-        int i, n, max, min;
         Scanner in = new Scanner(System.in);
-        System.out.print("Nhap so n ");
-        n = in.nextInt();
-        for (i = 1; i <= n; i++) {
-            System.out.print(" " + i);
+        System.out.println("Enter n: ");
+        int n = in.nextInt();
+
+        int[] numbers = new int[n];
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print("Nhap vao phan tu thu " + i + "; ");
+            numbers[i] = in.nextInt();
         }
-        max = Math.max(1, n);
-        System.out.println("\nSo lon nhat la "+max);
-        min = Math.min(1, n);
-        System.out.println("So nho nhat la "+min);
+        System.out.println("Day so nguoi dung vua nhap la ");
+        for (int i : numbers) {
+            System.out.print(i + "\t");
+        }
+//        Arrays.sort(numbers);
+//        System.out.println("\nMin la "+numbers[0]);
+//        System.out.println("Max la "+numbers[n-1]);
+        int min = numbers[0];
+        int max = numbers[0];
+        for(int i :numbers){
+            if(i>max){
+                max = i;
+            }
+            else if(i<min){
+                min = i;
+            }
+        } 
+        System.out.println("Min = "+min);
+        System.out.println("Max = "+max);
+       
     }
 
 }
